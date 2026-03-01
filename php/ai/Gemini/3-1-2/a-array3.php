@@ -17,6 +17,6 @@ for($i=0;$i<$nameCount;$i++){
 
 /*
 forearchで短縮可能。
-3-1-3　array-for.php 参考
+3-1-3　array-for1.php 参考
 */
 ?>
