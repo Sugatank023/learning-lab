@@ -1,6 +1,7 @@
 <?php
-//連想配列 練習問題
+//foreachによる配列のループ　a-array3.php
 
+/*ここからForeachなしの文
 $scores=[
     "math"=>85,
     "english"=>70,
@@ -14,9 +15,18 @@ $nameCount=count($name);
 for($i=0;$i<$nameCount;$i++){
     echo $name[$i]."は".$scores[$eng_name[$i]]."点です。<br>";
 }
+*///ここからforeach
 
-/*
-forearchで短縮可能。
-3-1-3　array-for.php 参考
-*/
+
+$scores=[
+    "数学"=>85,
+    "英語"=>70,
+    "国語"=>90
+];
+
+foreach($scores as $subject=>$score){
+    echo $subject."は".$score."点です。<br>";
+}
+
+
 ?>
