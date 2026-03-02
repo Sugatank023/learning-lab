@@ -11,7 +11,7 @@
 // PHP部分：送られてきたデータを受け取る処理
 // $_POST は、POSTで送られてきたデータが入る「特別な連想配列」です
 
-//もし'user_name'というデータが送られてきたら（isset関数で確認）
+//もし'password'というデータが送られてきたら（isset関数で確認）
 if(isset($_POST['password'])){
     $pass=$_POST['password'];
     echo "あなたのパスワードは「{$pass}」です。（POSTで受け取りました）";
