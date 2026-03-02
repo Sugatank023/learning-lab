@@ -2,7 +2,7 @@
 <form method="GET" action="">
     <label>お名前：</label>
     <input type="text" name="user_name">
-    <buttton type="submit">送信</button>
+    <button type="submit">送信</button>
 </form>
 
 <hr>
