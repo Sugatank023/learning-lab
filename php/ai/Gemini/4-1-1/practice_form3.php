@@ -1,7 +1,7 @@
 <form method="GET" action="">
-    <label></label>
+    <label>商品検索：</label>
     <input type="text" name="search_query">
-    <button type="submit">送信</button>
+    <button type="submit">検索</button>
 </form>
 
 
