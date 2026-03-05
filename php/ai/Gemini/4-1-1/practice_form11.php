@@ -8,33 +8,36 @@
     <button type="submit">運賃を計算する</button>
 </form>
 
+<hr>
+
 
 <?php
+
 //issetで中身確認
 if(isset($_POST["distance"])&&isset($_POST["dispatch"])&&isset($_POST["midnight"])){
     //変数に代入
     $distance=$_POST["distance"];
     $dispatch=$_POST["dispatch"];
     $midnight=$_POST["midnight"];
-    //基礎料金計算式
-    $distance_price=$distance*300;
-    //迎車料金条件分岐
-    $dispatch_price=match($dispatch){
-        "はい"=>$distance_price+400,
-        "いいえ"=>$distance_price,
-        default=>$distance_price
+    //走行距離料金の計算
+    $fare=$distance*300;
+    //迎車料金の条件分岐
+    $dispatch_fare=match($dispatch){
+        "はい"=>$fare+400,
+        "いいえ"=>$fare,
+        default=>$fare
     };
-    //深夜割増
-    $total_price=match($midnight){
-        "はい"=>$dispatch_price*1.2,
-        "いいえ"=>$dispatch_price,
-        default=>$dispatch_price
+    //深夜料金の条件分岐
+    $midnight_fare=match($midnight){
+        "はい"=>$dispatch_fare*1.2,
+        "いいえ"=>$dispatch_fare,
+        default=>$dispatch_fare
     };
-    //端数処理
-    $fin_price=floor($total_price);
-
-    //表示処理
-    echo"ご乗車ありがとうございます。<br>タクシー料金は{$fin_price}円です。";
+    //最終料金の計算（端数処理）
+    $fin_fare=floor($midnight_fare);
     
+    //表示
+    echo"ご乗車ありがとうございます。<br>タクシー運賃は{$fin_fare}円です。";
 }
+
 ?>
