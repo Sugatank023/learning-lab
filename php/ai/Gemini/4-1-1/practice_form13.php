@@ -25,7 +25,7 @@ if(isset($_POST["hourly_wage"])&&isset($_POST["work_hours"])&&isset($_POST["work
     }elseif($work_hours>=1){
 
         //基本給の計算
-        $basic_wage=$hourly_wage*$work_hours*$work_days;
+        $basic_wage=$hourly_wage*$work_hours;//*$work_daysは要らない
 
         //交通費の計算
         $trans_cost=$work_days*500;
