@@ -10,7 +10,7 @@
 //issetで確認
 if(isset($_POST["user_name"])){
     //変数代入（サニタイズ）
-    $user_name=htmlspecialchars($_POST["user_name"]);
+    $user_name=htmlspecialchars($_POST["user_name"],ENT_QUOTES,'UTF-8');
     //表示処理
     echo"こんにちは、{$user_name}さん";
 }
