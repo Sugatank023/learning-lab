@@ -1,4 +1,4 @@
-<?php
+.<?php
 //foreachによる配列のループ　a-array3.php
 
 /*ここからForeachなしの文
