@@ -11,37 +11,44 @@
 <hr>
 
 <?php
-
+//整数チェック入りのスクリプト（GPT）
 $prices=["商品A"=>1000,"商品B"=>2500,"商品C"=>5000];
-//1.issetで確認
+
 if(isset($_POST["item_a"],$_POST["item_b"],$_POST["item_c"])){
-    //2.変数代入（サニタイズ）
-    $item_a=htmlspecialchars($_POST["item_a"],ENT_QUOTES,'UTF-8');
-    $item_b=htmlspecialchars($_POST["item_b"],ENT_QUOTES,'UTF-8');
-    $item_c=htmlspecialchars($_POST["item_c"],ENT_QUOTES,'UTF-8');
-    //受け取った数量を商品名をキーとした連想配列にまとめる
+
+    // 整数チェック
+    if(
+        !ctype_digit($_POST["item_a"]) ||
+        !ctype_digit($_POST["item_b"]) ||
+        !ctype_digit($_POST["item_c"])
+    ){
+        exit("整数のみ入力してください");
+    }
+
+    // 数値として扱う
+    $item_a=(int)$_POST["item_a"];
+    $item_b=(int)$_POST["item_b"];
+    $item_c=(int)$_POST["item_c"];
+
     $quantities=["商品A"=>$item_a,"商品B"=>$item_b,"商品C"=>$item_c];
-    //小計用の変数
+
     $subtotal=0;
-    //ループで処理
+
     foreach($quantities as $key => $item){
         if($item>=1){
-            $sum=$item*$prices["$key"];
-            echo"{$key}：".$prices["$key"]."円 × {$item}個＝{$sum}円<br>";
+            $sum=$item*$prices[$key];
+            echo "{$key}：".$prices[$key]."円 × {$item}個＝{$sum}円<br>";
             $subtotal+=$sum;
         }
     }
-    //合計の計算
-    $total=0;
-    //送料の格納
+
     $fee=800;
-    //送料の加算
+    $total=$subtotal;
+
     if($subtotal<10000){
-        $total=$subtotal+$fee;
+        $total+=$fee;
     }
-    //表示処理
-    echo"小計：{$subtotal}円/送料：{$fee}円/お支払総額：{$total}円";
+
+    echo "小計：{$subtotal}円 / 送料：{$fee}円 / お支払総額：{$total}円";
 }
-
-
 ?>
