@@ -2,8 +2,8 @@
 //現在の時刻を取得
 $current_time=date("Y-m-d H:i:s");
 //クッキーをセットする（名前：Last_visit, 値：現在の時刻, 有効期限：今から1時間後）
-//time()は現在の秒数を表し、3600秒（1時間）を足しています。
-setcookie("last_visit",$current,time()+3600);
+//time()は現在の秒数を表し、3600秒（1時間）を足しています。（保存時間）
+setcookie("last_visit",$current_time,time()+3600);
 ?>
 
 <!DOCTYPE html>
