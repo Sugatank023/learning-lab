@@ -1,18 +1,16 @@
 <?php
 session_start();
 
-if(isset($_POST["fav_food"])){
-    $fav_name=htmlspecialchars($_POST["fav_food"],ENT_QUOTES,'UTF-8');
-    $_SESSION["fav_food"]=$fav_name;
+if (isset($_SESSION["user_name"]) && isset($_POST["fav_food"])) {
+    // セッションから名前を取得
+    $name = $_SESSION["user_name"];
+    // POSTから食べ物を取得してサニタイズ
+    $food = htmlspecialchars($_POST["fav_food"], ENT_QUOTES, 'UTF-8');
 
-    $fav=$_SESSION["fav_food"];
-    $user=$_SESSION["user_name"];
+    echo "{$name}さんの好きな食べ物は、{$food}ですね！アンケート協力ありがとうございました。";
 
-    echo"{$user}さんの好きな食べ物は{$fav}ですね！アンケート協力ありがとうございました。";
-}else{
-    echo"エラー！！データが届いていません！！";
+    // 使い終わったらロッカーを空にする
+    session_destroy();
+    echo "<br>セッションを破棄しました（リロードすると名前は消えます）。";
 }
-
-session_destroy();
 ?>
-
