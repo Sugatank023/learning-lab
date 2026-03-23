@@ -7,6 +7,9 @@ if(!isset($_SESSION['is_auth'])||$_SESSION['is_auth']!==true){
     exit;
 }
 
+//共通ヘッダーを読み込む
+require 'header.php';
+
 //認証済みの場合のみ表示される
 $name= htmlspecialchars($_SESSION['user_name'],ENT_QUOTES,'UTF-8');
 
