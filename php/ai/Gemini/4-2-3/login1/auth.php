@@ -13,6 +13,8 @@ if($id_input===$id_db && $pw_input===$pw_db){
     // 2. 「ログイン済み」という状態をセッションに刻む
     $_SESSION['is_auth']=true;
     $_SESSION['user_name']=$id_input;
+    //現在時刻の保存（応用問題）
+    $_SESSION['last_activity']=time();
 
     header('Location:dashboard.php');
     exit;
