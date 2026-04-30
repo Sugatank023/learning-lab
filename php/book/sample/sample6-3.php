@@ -1,7 +1,7 @@
 <?php
 //クラスの学習ファイル
 //自動車クラス
-
+/*
 class Car{
     //スピードのプロパティ
     private $speed;
@@ -33,5 +33,5 @@ $car1->stop();
 $car2->drive(40);
 $car2->stop();
 
-
+*/
 ?>                  
