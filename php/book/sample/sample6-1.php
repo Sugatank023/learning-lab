@@ -1,5 +1,5 @@
 <?php
-
+/*
 require_once("car.php");
 
 $car = new Car();
@@ -9,5 +9,5 @@ $car->speed = 50;
 
 $car->drive();
 $car->stop();
-
+*/
 ?>

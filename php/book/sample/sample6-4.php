@@ -1,5 +1,5 @@
 <?php
-
+/*
 class Person{
     private $name;
 
@@ -15,6 +15,6 @@ class Person{
 $p = new Person();
 $p->setName("山田太郎");
 echo "名前：{$p->getName()}";
-
+*/
 
 ?>                  
