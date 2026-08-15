@@ -14,7 +14,7 @@ class Person{
     public function show(){
         echo"{$this->name}({$this->age})性別：{$this->sex}<br>";
     }
-
+    
 }
 
 
